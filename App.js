@@ -40,7 +40,6 @@ export default class App extends React.Component {
     });
   }
 
-  //
   async handleFacebookButton() {
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(FACEBOOK_APP_ID, {
       permissions: ['public_profile', 'email']
