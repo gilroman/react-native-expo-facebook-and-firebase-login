@@ -18,7 +18,6 @@ const config = {
 firebase.initializeApp(config);
 
 const auth = firebase.auth();
-const provider = new firebase.auth.FacebookAuthProvider();
 
 export default class App extends React.Component {
   constructor(props) {
@@ -47,7 +46,7 @@ export default class App extends React.Component {
     if (type === 'success') {
       //Firebase credential is created with the Facebook access token.
       const credential = firebase.auth.FacebookAuthProvider.credential(token);
-      auth.signInWithCredential(credential).catch(error => {
+      auth.signInAndRetrieveDataWithCredential(credential).catch(error => {
         this.setState({ errorMessage: error.message });
       });
     }
